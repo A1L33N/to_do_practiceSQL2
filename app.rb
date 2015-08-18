@@ -6,13 +6,17 @@ require 'pg'
 
 DB = PG.connect({:dbname => "to_do"})
 
-get '/' do
-  Task.clear
-  erb :index
+get('/') do
+  erb(:index)
 end
 
-post '/' do
-  @task = Task.new(params['to_do'])
-  @task.save
-  erb :index
+get('/add_lists') do
+  erb(:add_list)
+end
+
+post('/view_list') do
+  name = params.fetch('list_name')
+  list = List.new({:name => name, id => nil})
+  list.save()
+  erb(:view_list)
 end

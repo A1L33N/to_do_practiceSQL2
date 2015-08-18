@@ -1,0 +1,15 @@
+<h1>Here are your lists!</h1>
+
+<h3>
+<ul>
+  <% if List.all().any?()  %>
+    <% List.all.each() do |list|%>
+      <li><a href="/list_tasks/<%=list.id%>"><%= list.name %></a></li>
+    <% end %>
+
+  <% else %>
+    You have no lists yet
+
+  <% end%>
+</ul>
+</h3>

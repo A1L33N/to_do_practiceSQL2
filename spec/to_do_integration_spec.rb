@@ -15,7 +15,12 @@ describe("adding a new list", {:type => :feature}) do
   end
 end
 
-# describe("viewing tasks path") do
-#   it("allows a user to look at tasks of a list") do
-#     list = List.new({:name})
-#     visit("/list_tasks/#{list.id()}")
+describe("viewing tasks path") do
+  it("allows a user to look at tasks of a list") do
+    list = List.new({:name => 'work', :id => nil})
+    visit("/list_tasks/#{list.id()}")
+    fill_in('new_task', :with => 'send report')
+    click_button('Add Task')
+    expect(page).to have_content('send report')
+  end
+end

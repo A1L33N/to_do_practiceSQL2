@@ -14,3 +14,8 @@ describe("adding a new list", {:type => :feature}) do
     expect(page).to have_content('Professional Stuff')
   end
 end
+
+# describe("viewing tasks path") do
+#   it("allows a user to look at tasks of a list") do
+#     list = List.new({:name})
+#     visit("/list_tasks/#{list.id()}")

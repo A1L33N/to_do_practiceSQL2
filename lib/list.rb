@@ -1,6 +1,7 @@
 class List
   attr_reader :name, :id
 
+
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
     @id = attributes.fetch(:id)
@@ -34,6 +35,11 @@ class List
       end
     end
     found_list
+  end
+
+
+  define_singleton_method(:clear) do
+    DB.exec('DELETE FROM lists *;')
   end
 
 

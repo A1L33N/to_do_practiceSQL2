@@ -2,11 +2,3 @@
 
 <a href="/add_lists">Add a list</a>
 <a href="/view_lists">View all lists</a>
-
-<h2>Remaining tasks</h2
-<ul>
-  <% Task.all.each do |task| %>
-    <li><%= task.description %></li>
-  <% end %>
-</ul>
-<a href='/'>Clear</a>

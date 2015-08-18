@@ -59,4 +59,15 @@ describe List do
       expect(List.find(list2.id())).to(eq(list2))
     end
   end
+
+  describe ".clear" do
+    it "deletes all lists" do
+      list1 = List.new({:name => "Work stuff", :id => nil})
+      list1.save()
+      list2 = List.new({:name => "Fun stuff", :id => nil})
+      list2.save()
+      List.clear
+      expect(List.all).to eq([])
+    end
+  end
 end

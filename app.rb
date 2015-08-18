@@ -19,7 +19,8 @@ get('/view_lists') do
   erb(:view_lists)
 end
 
-get('list_tasks') do
+get('/list_tasks/:id') do
+  #not finding id
   @list = List.find(params.fetch("id").to_i())
   erb(:list_tasks)
 end

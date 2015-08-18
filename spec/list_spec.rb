@@ -49,4 +49,14 @@ describe List do
       expect(list1).to(eq(list2))
     end
   end
+
+  describe ".find" do
+    it "find a list by id #" do
+      list1 = List.new({:name => "Work stuff", :id => nil})
+      list1.save()
+      list2 = List.new({:name => "Fun stuff", :id => nil})
+      list2.save()
+      expect(List.find(list2.id())).to(eq(list2))
+    end
+  end
 end

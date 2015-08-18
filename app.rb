@@ -5,7 +5,7 @@ require 'sinatra'
 also_reload '../lib/**/*.rb'
 require 'pg'
 
-DB = PG.connect({:dbname => "to_do"})
+DB = PG.connect({:dbname => "to_do_test"})
 
 get('/') do
   erb(:index)
@@ -19,6 +19,10 @@ get('/view_lists') do
   erb(:view_lists)
 end
 
+get('list_tasks') do
+  @list = List.find(params.fetch("id").to_i())
+  erb(:list_tasks)
+end
 
 post('/view_lists') do
   name = params.fetch('list_name')
